@@ -19,5 +19,7 @@ namespace Aron_Andreea1_Lab2.Data
         public DbSet<Aron_Andreea1_Lab2.Models.Publisher>? Publisher { get; set; }
 
         public DbSet<Aron_Andreea1_Lab2.Models.Author>? Author { get; set; } = default!;
+
+        public DbSet<Aron_Andreea1_Lab2.Models.Category>? Category { get; set; }
     }
 }
