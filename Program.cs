@@ -11,7 +11,7 @@ builder.Services.AddDbContext<Aron_Andreea1_Lab2Context>(options =>
 
 builder.Services.AddDbContext<LibraryIdentityContext>(options =>
 
-options.UseSqlServer(builder.Configuration.GetConnectionString("Aron_Andreea1_Lab2Context") ?? throw new InvalidOperationException("Connection string 'Aron_Andreea1_Lab2Context' not found.")));
+options.UseSqlServer(builder.Configuration.GetConnectionString("LibraryIdentityContextConnection") ?? throw new InvalidOperationException("Connection string 'Aron_Andreea1_Lab2Context' not found.")));
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<LibraryIdentityContext>();
