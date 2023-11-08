@@ -35,9 +35,22 @@ namespace Aron_Andreea1_Lab2.Pages.Borrowings
             {
                 return NotFound();
             }
+            
             Borrowing = borrowing;
-           ViewData["BookID"] = new SelectList(_context.Book, "ID", "ID");
-           ViewData["MemberID"] = new SelectList(_context.Member, "ID", "ID");
+
+            var member = await _context.Member.FirstOrDefaultAsync(m => m.ID == Borrowing.MemberID);
+            ViewData["Members"] = new SelectList(_context.Member, "ID", "FullName");
+            ViewData["Borrowing.MemberName"] = member.FullName;  // se afiseaza numele membrului
+
+
+            var book = await _context.Book.FirstOrDefaultAsync(m => m.ID == Borrowing.BookID);
+            ViewData["Books"] = new SelectList(_context.Book, "ID", "Title");
+            ViewData["Borrowing.BookDetails"] = $"Author: {book.Author?.FullName}, Price: {book.Price:C}, Publishing Date: {book.PublishingDate:D}"; // Se afiseaza detaliile cărții 
+
+            
+            // ViewData["BookID"] = new SelectList(_context.Book, "ID", "ID");
+            // ViewData["MemberID"] = new SelectList(_context.Member, "ID", "ID");
+
             return Page();
         }
 
