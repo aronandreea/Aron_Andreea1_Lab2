@@ -25,7 +25,7 @@ namespace Aron_Andreea1_Lab2.Data
         public DbSet<Aron_Andreea1_Lab2.Models.Member>? Member { get; set; }
 
         public DbSet<Aron_Andreea1_Lab2.Models.Borrowing>? Borrowing { get; set; }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //protected override void OnModelCreating(ModelBuilder modelBuilder);
        
     }
 }
