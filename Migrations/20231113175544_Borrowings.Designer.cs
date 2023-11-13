@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Aron_Andreea1_Lab2.Migrations
 {
     [DbContext(typeof(Aron_Andreea1_Lab2Context))]
-    [Migration("20231031193332_BookCategory")]
-    partial class BookCategory
+    [Migration("20231113175544_Borrowings")]
+    partial class Borrowings
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -136,7 +136,7 @@ namespace Aron_Andreea1_Lab2.Migrations
             modelBuilder.Entity("Aron_Andreea1_Lab2.Models.Book", b =>
                 {
                     b.HasOne("Aron_Andreea1_Lab2.Models.Author", "Author")
-                        .WithMany()
+                        .WithMany("Books")
                         .HasForeignKey("AuthorID");
 
                     b.HasOne("Aron_Andreea1_Lab2.Models.Publisher", "Publisher")
@@ -165,6 +165,11 @@ namespace Aron_Andreea1_Lab2.Migrations
                     b.Navigation("Book");
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("Aron_Andreea1_Lab2.Models.Author", b =>
+                {
+                    b.Navigation("Books");
                 });
 
             modelBuilder.Entity("Aron_Andreea1_Lab2.Models.Book", b =>
